@@ -69,6 +69,16 @@ build/
 *.tmp
 *.temp
 
+# Archive files
+*.tar
+*.tar.*
+*.jar
+*.exe
+*.msi
+*.deb
+*.zip
+*.tgz
+
 # Excel data files (optional - you may want to include these)
 # *.xlsx
 # *.xls
