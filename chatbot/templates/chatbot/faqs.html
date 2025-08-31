@@ -1,0 +1,310 @@
+{% extends 'chatbot/base.html' %}
+
+{% block title %}FAQs - Financial AI Assistant{% endblock %}
+
+{% block description %}Get answers to frequently asked questions about our Financial AI Assistant. Learn how to use natural language queries, understand data availability, and troubleshoot common issues.{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: var(--spacing-4xl); padding-bottom: var(--spacing-4xl);">
+    <!-- Header Section -->
+    <div class="text-center" style="margin-bottom: var(--spacing-4xl);">
+        <h1>Frequently Asked Questions</h1>
+        <p style="font-size: var(--font-size-lg); color: var(--neutral-gray);">
+            Everything you need to know about using our Financial AI Assistant
+        </p>
+    </div>
+    
+    <!-- Search Section -->
+    <div class="faq-search">
+        <div style="position: relative;">
+            <i class="fas fa-search search-icon"></i>
+            <input 
+                type="text" 
+                id="faq-search" 
+                class="search-input" 
+                placeholder="Search frequently asked questions..." 
+                autocomplete="off"
+            >
+        </div>
+    </div>
+    
+    <!-- FAQ Accordion -->
+    <div class="faq-accordion">
+        <!-- Usage Questions -->
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>How do I ask questions to the Financial AI Assistant?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+                <p>Simply ask in natural language! You can say things like:</p>
+                <ul>
+                    <li><strong>"What is the revenue for 2024-25?"</strong> - Get specific financial metrics</li>
+                    <li><strong>"Show me operating expenses"</strong> - View expense categories</li>
+                    <li><strong>"Compare cash flow between years"</strong> - Analyze trends</li>
+                    <li><strong>"What are the total assets?"</strong> - Get balance sheet information</li>
+                </ul>
+                <p>The AI understands natural language and converts your questions into precise financial queries.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>What financial data is available?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+                <p>Our AI assistant has access to comprehensive financial statements including:</p>
+                <ul>
+                    <li><strong>📊 Income Statement:</strong> Revenue, expenses, net income, employee benefits</li>
+                    <li><strong>🏦 Balance Sheet:</strong> Assets, liabilities, equity, cash and cash equivalents</li>
+                    <li><strong>💸 Cash Flow Statement:</strong> Operating, investing, and financing activities</li>
+                    <li><strong>📈 Changes in Equity:</strong> Opening balances, movements, and closing balances</li>
+                </ul>
+                <p>Data spans multiple fiscal years (2023-24 through 2027-28) with both actual and projected figures.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>Can I compare data across different years?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+                <p>Absolutely! The AI excels at comparative analysis. You can ask questions like:</p>
+                <ul>
+                    <li><strong>"Compare revenue between 2024-25 and 2025-26"</strong></li>
+                    <li><strong>"How did expenses change from 2024-25 to 2026-27?"</strong></li>
+                    <li><strong>"Show me cash flow trends across all years"</strong></li>
+                    <li><strong>"What's the percentage growth in assets?"</strong></li>
+                </ul>
+                <p>The assistant will provide detailed comparative analysis with actual numbers and insights.</p>
+            </div>
+        </div>
+
+        <!-- Technical Questions -->
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>How accurate are the AI responses?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+                <p>Our AI assistant provides high-accuracy responses with confidence scoring:</p>
+                <ul>
+                    <li><strong>🟢 High Confidence (80-100%):</strong> Precise matches with clear data</li>
+                    <li><strong>🟡 Medium Confidence (60-79%):</strong> Good matches with minor ambiguity</li>
+                    <li><strong>🔴 Low Confidence (Below 60%):</strong> Uncertain matches requiring clarification</li>
+                </ul>
+                <p>Each response includes a confidence score so you can trust the accuracy of the information provided.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>What if I make a typo or ask an unclear question?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+                <p>The AI is designed to be forgiving and helpful:</p>
+                <ul>
+                    <li><strong>Typo Tolerance:</strong> Minor spelling errors are automatically corrected</li>
+                    <li><strong>Smart Suggestions:</strong> Alternative questions are provided when needed</li>
+                    <li><strong>Context Understanding:</strong> The AI considers conversation context</li>
+                    <li><strong>Clarification Requests:</strong> You'll be asked to clarify ambiguous queries</li>
+                </ul>
+                <p>If a question isn't understood, the AI will guide you toward a better phrasing.</p>
+            </div>
+        </div>
+
+        <!-- Data Questions -->
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>Which fiscal years are covered in the data?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+                <p>Financial data is available for the following periods:</p>
+                <ul>
+                    <li><strong>2023-24:</strong> Estimated actual figures</li>
+                    <li><strong>2024-25:</strong> Budget and actual data</li>
+                    <li><strong>2025-26:</strong> Forward estimates and projections</li>
+                    <li><strong>2026-27:</strong> Forward estimates</li>
+                    <li><strong>2027-28:</strong> Forward estimates</li>
+                </ul>
+                <p>You can specify years in various formats: "2024-25", "FY 2024-25", "fiscal year 2024", etc.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>What happens if data isn't available for my question?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+                <p>When specific data isn't available, the AI will:</p>
+                <ul>
+                    <li><strong>Explain what's missing:</strong> Clear information about data gaps</li>
+                    <li><strong>Suggest alternatives:</strong> Related data that might be helpful</li>
+                    <li><strong>Provide context:</strong> Information about why data might be unavailable</li>
+                    <li><strong>Offer guidance:</strong> How to rephrase for better results</li>
+                </ul>
+                <p>The AI ensures you always get helpful information, even when exact data isn't available.</p>
+            </div>
+        </div>
+
+        <!-- Advanced Features -->
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>Can I ask follow-up questions?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+                <p>Yes! The AI maintains conversation context and supports natural follow-ups:</p>
+                <ul>
+                    <li><strong>Context Awareness:</strong> Remembers what you just asked about</li>
+                    <li><strong>Quick Follow-ups:</strong> "What about 2025-26?" or "Show me the breakdown"</li>
+                    <li><strong>Related Questions:</strong> "Compare this with last year"</li>
+                    <li><strong>Drill-down Queries:</strong> "Give me more details" or "Show the components"</li>
+                </ul>
+                <p>This makes conversations feel natural and efficient for complex financial analysis.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Call to Action -->
+    <div class="text-center" style="margin-top: var(--spacing-4xl);">
+        <div class="card" style="max-width: 600px; margin: 0 auto;">
+            <div class="card-body">
+                <h2 style="margin-bottom: var(--spacing-lg);">Ready to Try It Yourself?</h2>
+                <p style="margin-bottom: var(--spacing-2xl);">Experience the power of conversational financial analysis. Start asking questions and get instant insights from your data.</p>
+                
+                <div style="display: flex; gap: var(--spacing-lg); justify-content: center; flex-wrap: wrap;">
+                    <a href="{% url 'chatbot:chat' %}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-comments"></i>
+                        Start Conversation
+                    </a>
+                    <a href="{% url 'chatbot:index' %}" class="btn btn-outline">
+                        <i class="fas fa-home"></i>
+                        Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Enhanced FAQ functionality with search
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    const searchInput = document.getElementById('faq-search');
+    
+    // FAQ accordion functionality
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const icon = item.querySelector('.faq-icon');
+        
+        question.addEventListener('click', function() {
+            const isActive = item.classList.contains('active');
+            
+            // Close all other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            if (!isActive) {
+                item.classList.add('active');
+                
+                // Smooth scroll to the question
+                setTimeout(() => {
+                    question.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 300);
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    });
+    
+    // Search functionality
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase().trim();
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                
+                if (searchTerm === '' || question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    
+                    // Highlight search term
+                    if (searchTerm !== '') {
+                        highlightSearchTerm(item, searchTerm);
+                    } else {
+                        removeHighlights(item);
+                    }
+                } else {
+                    item.style.display = 'none';
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Show message if no results
+            const visibleItems = Array.from(faqItems).filter(item => item.style.display !== 'none');
+            const existingMessage = document.getElementById('no-results-message');
+            
+            if (visibleItems.length === 0 && searchTerm !== '') {
+                if (!existingMessage) {
+                    const message = document.createElement('div');
+                    message.id = 'no-results-message';
+                    message.className = 'text-center';
+                    message.style.cssText = 'padding: 2rem; color: var(--neutral-gray);';
+                    message.innerHTML = `
+                        <i class="fas fa-search" style="font-size: 2rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+                        <p>No FAQs found matching "${searchTerm}"</p>
+                        <p style="font-size: 0.9rem;">Try searching for "revenue", "expenses", "cash flow", or "data"</p>
+                    `;
+                    document.querySelector('.faq-accordion').appendChild(message);
+                }
+            } else if (existingMessage) {
+                existingMessage.remove();
+            }
+        });
+    }
+    
+    function highlightSearchTerm(item, term) {
+        // Simple highlighting (in a real app, you'd want more sophisticated highlighting)
+        const question = item.querySelector('.faq-question span');
+        const answer = item.querySelector('.faq-answer');
+        
+        [question, answer].forEach(element => {
+            if (element) {
+                const text = element.textContent;
+                const regex = new RegExp(`(${term})`, 'gi');
+                const highlightedText = text.replace(regex, '<mark style="background: yellow; padding: 0 2px;">$1</mark>');
+                
+                if (highlightedText !== text) {
+                    element.innerHTML = highlightedText;
+                }
+            }
+        });
+    }
+    
+    function removeHighlights(item) {
+        const marks = item.querySelectorAll('mark');
+        marks.forEach(mark => {
+            mark.outerHTML = mark.innerHTML;
+        });
+    }
+});
+</script>
+{% endblock %}

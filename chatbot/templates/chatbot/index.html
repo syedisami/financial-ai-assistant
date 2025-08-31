@@ -1,0 +1,166 @@
+{% extends 'chatbot/base.html' %}
+
+{% block title %}Financial AI Assistant - Transform Your Data Into Insights{% endblock %}
+
+{% block description %}Unlock the power of your financial data with our intelligent AI assistant. Get instant answers about revenue, expenses, cash flow, and balance sheets using natural language queries.{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content container">
+        <h1>Unlock Insights from Your Financial Data</h1>
+        <p>Transform complex financial statements into clear, actionable insights with our intelligent AI assistant. Simply ask questions in natural language and get instant, accurate answers about your revenue, expenses, cash flow, and more.</p>
+        
+        <div class="hero-buttons">
+            <a href="{% url 'chatbot:chat' %}" class="btn btn-primary btn-lg">
+                <i class="fas fa-comments"></i>
+                Get Started
+            </a>
+            <a href="#features" class="btn btn-secondary btn-lg">
+                <i class="fas fa-info-circle"></i>
+                Learn More
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="features">
+    <div class="container">
+        <div class="text-center">
+            <h2>Why Choose Our Financial AI Assistant?</h2>
+            <p>Powerful features designed to make financial analysis intuitive and accessible</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>Comprehensive Financial Data</h3>
+                <p>Access complete financial statements including income statements, balance sheets, cash flow statements, and changes in equity across multiple fiscal years.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Natural Language Queries</h3>
+                <p>Ask questions in plain English like "What's the revenue for 2024-25?" or "Compare expenses between years" - no complex queries or technical knowledge required.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Real-Time Analysis</h3>
+                <p>Get instant responses with high accuracy scores. Our AI processes your questions in milliseconds and provides contextual, data-driven answers.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>High Accuracy</h3>
+                <p>Advanced NLP algorithms ensure precise interpretation of your queries with confidence scoring, so you can trust the insights you receive.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Questions Section -->
+<section class="quick-questions">
+    <div class="container">
+        <div class="text-center">
+            <h2>Try asking one of these questions...</h2>
+            <p>Click any question below to get started with our AI assistant</p>
+        </div>
+        
+        <div class="question-chips">
+            <a href="{% url 'chatbot:chat' %}?q=What%20is%20the%20revenue%20for%202024-25?" class="question-chip">
+                <i class="fas fa-chart-line"></i>
+                What is the revenue for 2024-25?
+            </a>
+            <a href="{% url 'chatbot:chat' %}?q=Show%20me%20cash%20flow%20for%20the%20current%20year" class="question-chip">
+                <i class="fas fa-money-bill-wave"></i>
+                Show me cash flow for the current year
+            </a>
+            <a href="{% url 'chatbot:chat' %}?q=Compare%20expenses%20between%202024-25%20and%202025-26" class="question-chip">
+                <i class="fas fa-balance-scale"></i>
+                Compare expenses between years
+            </a>
+            <a href="{% url 'chatbot:chat' %}?q=What%20are%20the%20total%20assets?" class="question-chip">
+                <i class="fas fa-building"></i>
+                What are the total assets?
+            </a>
+            <a href="{% url 'chatbot:chat' %}?q=Show%20me%20employee%20benefits%20for%202024-25" class="question-chip">
+                <i class="fas fa-users"></i>
+                Show me employee benefits
+            </a>
+            <a href="{% url 'chatbot:chat' %}?q=What%20is%20the%20net%20cash%20from%20operating%20activities?" class="question-chip">
+                <i class="fas fa-chart-area"></i>
+                What is net cash from operations?
+            </a>
+        </div>
+        
+        <div class="text-center" style="margin-top: 2rem;">
+            <a href="{% url 'chatbot:chat' %}" class="btn btn-primary">
+                <i class="fas fa-comment-dots"></i>
+                Start Your Own Conversation
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section style="background: var(--white); padding: var(--spacing-4xl) 0;">
+    <div class="container">
+        <div class="card" style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <div class="card-body">
+                <h2 style="color: var(--primary-navy); margin-bottom: var(--spacing-lg);">Ready to Transform Your Financial Analysis?</h2>
+                <p style="font-size: var(--font-size-lg); margin-bottom: var(--spacing-2xl);">Join thousands of professionals who use our AI assistant to make data-driven financial decisions faster and more accurately.</p>
+                
+                <div style="display: flex; gap: var(--spacing-lg); justify-content: center; flex-wrap: wrap;">
+                    <a href="{% url 'chatbot:chat' %}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-rocket"></i>
+                        Start Analyzing Now
+                    </a>
+                    <a href="{% url 'chatbot:faqs' %}" class="btn btn-outline">
+                        <i class="fas fa-question-circle"></i>
+                        View FAQs
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Add some interactive enhancement
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate count-up for any metrics when they come into view
+    const animateOnScroll = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.transform = 'translateY(0)';
+                entry.target.style.opacity = '1';
+            }
+        });
+    };
+    
+    const observer = new IntersectionObserver(animateOnScroll, {
+        threshold: 0.1
+    });
+    
+    // Observe feature cards for animation
+    document.querySelectorAll('.feature-card').forEach(card => {
+        card.style.transform = 'translateY(20px)';
+        card.style.opacity = '0';
+        card.style.transition = 'all 0.6s ease-out';
+        observer.observe(card);
+    });
+});
+</script>
+{% endblock %}

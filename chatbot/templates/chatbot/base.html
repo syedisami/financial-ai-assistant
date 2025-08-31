@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Financial AI Assistant - Unlock Your Data Insights{% endblock %}</title>
+    
+    <!-- Meta tags for SEO and social sharing -->
+    <meta name="description" content="{% block description %}Intelligent financial data analysis with natural language queries. Get instant insights from your revenue, expenses, cash flow, and balance sheet data.{% endblock %}">
+    <meta name="keywords" content="financial chatbot, AI assistant, data analysis, business intelligence, financial reporting">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{% block og_title %}Financial AI Assistant{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Transform your financial data into actionable insights with our AI-powered assistant{% endblock %}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+    
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'chatbot/css/style.css' %}">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="{% url 'chatbot:index' %}" class="nav-brand">
+                <i class="fas fa-chart-line"></i>
+                FinanceAI
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="{% url 'chatbot:index' %}" class="nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}">Home</a></li>
+                <li><a href="{% url 'chatbot:chat' %}" class="nav-link {% if request.resolver_match.url_name == 'chat' %}active{% endif %}">Chat</a></li>
+                <li><a href="{% url 'chatbot:faqs' %}" class="nav-link {% if request.resolver_match.url_name == 'faqs' %}active{% endif %}">FAQs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Financial AI Assistant. Empowering data-driven decisions.</p>
+        </div>
+    </footer>
+    
+    <!-- CSRF Token for AJAX requests -->
+    {% csrf_token %}
+    
+    <!-- JavaScript -->
+    <script src="{% static 'chatbot/js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+    
+    <!-- Performance and Analytics -->
+    <script>
+        // Simple performance monitoring
+        if ('performance' in window) {
+            window.addEventListener('load', () => {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                console.log(`Page loaded in ${loadTime}ms`);
+            });
+        }
+    </script>
+</body>
+</html>

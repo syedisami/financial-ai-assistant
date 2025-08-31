@@ -1,0 +1,167 @@
+{% extends 'chatbot/base.html' %}
+
+{% block title %}Chat - Financial AI Assistant{% endblock %}
+
+{% block description %}Interact with our intelligent financial AI assistant. Ask questions about revenue, expenses, cash flow, balance sheets, and get instant, accurate insights from your data.{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: var(--spacing-2xl); padding-bottom: var(--spacing-2xl);">
+    <!-- Chat Container -->
+    <div class="chat-container">
+        <!-- Chat Header -->
+        <div class="chat-header">
+            <h2>
+                <i class="fas fa-brain"></i>
+                Financial AI Assistant
+            </h2>
+            <p>Ask me anything about your financial data - I can help with revenue, expenses, cash flow, balance sheets, and more!</p>
+        </div>
+        
+        <!-- Chat Messages -->
+        <div id="chat-messages" class="chat-messages">
+            <!-- Welcome message -->
+            <div class="message bot">
+                <div class="message-avatar">🤖</div>
+                <div class="message-content">
+                    <p>Hello! I'm your AI financial assistant. I can help you analyze your financial data and answer questions about:</p>
+                    <ul>
+                        <li>📊 Revenue and income statements</li>
+                        <li>💰 Expenses and operating costs</li>
+                        <li>🏦 Balance sheets and assets</li>
+                        <li>💸 Cash flow and liquidity</li>
+                        <li>📈 Year-over-year comparisons</li>
+                    </ul>
+                    <p>What would you like to know?</p>
+                    <div class="trust-score">
+                        <span>Confidence: </span>
+                        <div class="trust-bar">
+                            <div class="trust-fill high" style="width: 100%"></div>
+                        </div>
+                        <span>100%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Suggestions -->
+        <div id="suggestions" class="suggestions">
+            <button class="suggestion-chip">What is the revenue for 2024-25?</button>
+            <button class="suggestion-chip">Show me cash flow for the current year</button>
+            <button class="suggestion-chip">Compare expenses across years</button>
+            <button class="suggestion-chip">What are the total assets?</button>
+        </div>
+        
+        <!-- Chat Input -->
+        <div class="chat-input">
+            <form id="chat-form">
+                <div class="input-container">
+                    <textarea 
+                        id="chat-input" 
+                        class="chat-input-field"
+                        placeholder="Ask me about revenue, expenses, cash flow, balance sheets..."
+                        rows="1"
+                        maxlength="1000"></textarea>
+                    <button type="submit" id="send-button" class="send-button" title="Send message (Enter)">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+            <div style="font-size: var(--font-size-xs); color: var(--neutral-gray); margin-top: var(--spacing-sm); text-align: center;">
+                Press <kbd style="background: var(--neutral-light); padding: 2px 6px; border-radius: 4px; font-family: monospace;">Enter</kbd> to send • <kbd style="background: var(--neutral-light); padding: 2px 6px; border-radius: 4px; font-family: monospace;">Shift+Enter</kbd> for new line • <kbd style="background: var(--neutral-light); padding: 2px 6px; border-radius: 4px; font-family: monospace;">Ctrl+K</kbd> to focus • <kbd style="background: var(--neutral-light); padding: 2px 6px; border-radius: 4px; font-family: monospace;">Ctrl+L</kbd> to clear
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Help Section -->
+<section style="background: var(--neutral-light); padding: var(--spacing-4xl) 0;">
+    <div class="container">
+        <div class="text-center">
+            <h2>How to Get the Best Results</h2>
+            <p style="margin-bottom: var(--spacing-2xl);">Here are some tips to help you get accurate and useful answers</p>
+        </div>
+        
+        <div class="features-grid" style="max-width: 1000px; margin: 0 auto;">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>Specify Years</h3>
+                <p>Include specific fiscal years like "2024-25" or "2025-26" for more accurate results.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>Be Specific</h3>
+                <p>Use specific terms like "operating expenses" or "net cash flow" rather than generic terms.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h3>Natural Language</h3>
+                <p>Ask questions as you would to a colleague - "What's the revenue?" or "Compare cash flow".</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Chat-specific enhancements
+document.addEventListener('DOMContentLoaded', function() {
+    const chatInput = document.getElementById('chat-input');
+    
+    // Auto-focus on the input when page loads
+    if (chatInput) {
+        chatInput.focus();
+    }
+    
+    // Add visual feedback for confidence scores
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('trust-bar') || e.target.classList.contains('trust-fill')) {
+            const trustScore = e.target.closest('.trust-score');
+            if (trustScore) {
+                const tooltip = document.createElement('div');
+                tooltip.textContent = 'Confidence score indicates how certain the AI is about this answer';
+                tooltip.style.cssText = `
+                    position: absolute;
+                    background: var(--primary-navy);
+                    color: white;
+                    padding: 8px 12px;
+                    border-radius: 6px;
+                    font-size: 12px;
+                    z-index: 1000;
+                    max-width: 200px;
+                    pointer-events: none;
+                `;
+                
+                document.body.appendChild(tooltip);
+                
+                const rect = e.target.getBoundingClientRect();
+                tooltip.style.left = (rect.left + rect.width / 2 - tooltip.offsetWidth / 2) + 'px';
+                tooltip.style.top = (rect.top - tooltip.offsetHeight - 8) + 'px';
+                
+                setTimeout(() => {
+                    if (tooltip.parentNode) {
+                        tooltip.parentNode.removeChild(tooltip);
+                    }
+                }, 3000);
+            }
+        }
+    });
+    
+    // Welcome message animation
+    setTimeout(() => {
+        const welcomeMessage = document.querySelector('.message.bot');
+        if (welcomeMessage) {
+            welcomeMessage.style.animation = 'slideIn 0.5s ease-out';
+        }
+    }, 500);
+});
+</script>
+{% endblock %}

@@ -1,0 +1,10 @@
+What is the revenue for 2024-25?|revenue|2024-25
+Show me expenses for 2025-26|expenses|2025-26
+What are total assets?|assets|all
+Compare revenue across years|revenue|compare
+What is net income for 2026-27?|net_income|2026-27
+Show cash flow for 2024-25|cash_flow|2024-25
+What are employee benefits?|employee_benefits|all
+Compare expenses between 2024-25 and 2025-26|expenses|compare
+Show me the balance sheet|balance_sheet|all
+What is total equity for 2025-26?|equity|2025-26

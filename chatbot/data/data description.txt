@@ -1,0 +1,11 @@
+Financial Dataset Description:
+
+This dataset contains Australian Government Social Services budget data covering:
+
+1. Income Statement (3.1): Revenue, expenses, and net income
+2. Balance Sheet (3.2): Assets, liabilities, and equity
+3. Changes in Equity (3.3): Equity movements over time
+4. Cash Flow Statement (3.4): Operating, investing, and financing activities
+
+Time Period: 2024-25, 2025-26, 2026-27 financial years
+Key Agencies: DSS, NDIA, NDIS, SAUS, AFIS, DFSV

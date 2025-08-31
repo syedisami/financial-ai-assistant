@@ -1,0 +1,10 @@
+revenue,income,earnings,sales,turnover
+expenses,costs,expenditure,spending,outgoings
+assets,holdings,resources,property
+liabilities,debts,obligations,payables
+equity,net_worth,shareholders_equity
+cash_flow,cashflow,cash_position
+net_income,profit,net_profit,bottom_line
+employee_benefits,staff_benefits,personnel_costs
+operating_expenses,opex,operational_costs
+current_assets,short_term_assets
